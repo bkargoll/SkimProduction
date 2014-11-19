@@ -46,6 +46,9 @@ process.MyAk5PFJetTracksAssociatorAtVertex = cms.EDProducer("JetTracksAssociator
    process.j2tParametersVX,
    jets = cms.InputTag("ak5PFJetsCorr")
 )
+if "_pfembedded" in "<DataType>": # switch track collection only for PF embedding
+    process.MyAk5PFJetTracksAssociatorAtVertex.tracks = cms.InputTag("tmfTracks")
+
 process.MyImpactParameterPFTagInfos = process.impactParameterTagInfos.clone(
   jetTracks = "MyAk5PFJetTracksAssociatorAtVertex"
 )
@@ -309,6 +312,9 @@ process.NtupleMaker.pdfWeights = cms.VInputTag(
                         "pdfWeighting:NNPDF21",
                         "pdfWeighting:MSTW2008nlo68cl"
                         )
+
+if "_pfembedded" in "<DataType>": # switch track collection only for PF embedding
+    process.NtupleMaker.generalTracks = cms.InputTag("tmfTracks")
                         
 ###### New HPS
 process.load("RecoTauTag.Configuration.RecoPFTauTag_cff")
@@ -389,10 +395,12 @@ process.NtupleMaker.JECuncData = cms.untracked.string(base+'/data/JECuncertainty
 process.NtupleMaker.JECuncMC = cms.untracked.string(base+'/data/JECuncertaintyMC.txt')
 
 ####################################
-if "embedded" in "<DataType>":
-    process.NtupleMaker.Embedded = cms.untracked.bool(True);
+if "_embedded" in "<DataType>":
+    process.NtupleMaker.Embedded = cms.untracked.uint32(1); # RecHit embedding
+elif "_pfembedded" in "<DataType>":
+    process.NtupleMaker.Embedded = cms.untracked.uint32(2); # PF embedding
 else:
-    process.NtupleMaker.Embedded = cms.untracked.bool(False);
+    process.NtupleMaker.Embedded = cms.untracked.uint32(0);
 ####################################
 
 
