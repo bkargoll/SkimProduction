@@ -185,35 +185,3 @@ process.GlobalTag.globaltag = 'START53_V27::All'
 preselection = MuTau
 Pile_Up_File = Lumi_OfficialAndHtautau.root
 
-DataType = h_tautau_ggf
-datasetpath = /GluGluToHToTauTau_M-125_8TeV-powheg-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM
-dbs_url = https://cmsdbsprod.cern.ch:8443/cms_dbs_ph_analysis_02_writer/servlet/DBSServlet
-publish_data_name = Production_<TAG>_htautauggf
-output_file = TauNtuple.root
-total_number_of_events = -1
-number_of_jobs = 400
-process.GlobalTag.globaltag = 'START53_V27::All'
-preselection = MuTau
-Pile_Up_File = Lumi_OfficialAndHtautau.root
-
-DataType = h_tautau_vbf
-datasetpath = /VBF_HToTauTau_M-125_8TeV-powheg-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM
-dbs_url = https://cmsdbsprod.cern.ch:8443/cms_dbs_ph_analysis_02_writer/servlet/DBSServlet
-publish_data_name = Production_<TAG>_htautauvbf
-output_file = TauNtuple.root
-total_number_of_events = -1
-number_of_jobs = 400
-process.GlobalTag.globaltag = 'START53_V27::All'
-preselection = MuTau
-Pile_Up_File = Lumi_OfficialAndHtautau.root
-
-DataType = h_tautau_whzhtth
-datasetpath = /WH_ZH_TTH_HToTauTau_M-125_8TeV-pythia6-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM
-dbs_url = https://cmsdbsprod.cern.ch:8443/cms_dbs_ph_analysis_02_writer/servlet/DBSServlet
-publish_data_name = Production_<TAG>_htautauwhzhtth
-output_file = TauNtuple.root
-total_number_of_events = -1
-number_of_jobs = 400
-process.GlobalTag.globaltag = 'START53_V27::All'
-preselection = MuTau
-Pile_Up_File = Lumi_OfficialAndHtautau.root
